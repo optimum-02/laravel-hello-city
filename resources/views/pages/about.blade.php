@@ -1,6 +1,6 @@
 @extends('base')
 @section('title')
-About Us | Hello City
+About Us | {{config('app.name')}}
 @endsection
 @section('content')
 <h1>Built with &hearts; by Optimum.</h1>
