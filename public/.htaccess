@@ -5,6 +5,11 @@
 
     RewriteEngine On
 
+    RewriteCond %{HTTP:X-Forwaded_Proto} = http [OR]
+    RewriteCond %{HTTP:X-Forwaded_Proto} =""
+    RewriteCond %{HTTP} !=""
+    RewriteRule ^ https://*{HTTP_HOST}%{REQUEST_URL} [L,R=301]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
